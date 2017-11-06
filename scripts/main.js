@@ -3,7 +3,7 @@ var detail_title_selector = '[data-image-role="title"]';
 var detail_frame_selector = '[data-image-role="frame"]';
 var thumbnail_link_selector = '[data-image-role="trigger"]';
 var hidden_detail_class = 'hidden-detail';
-var tiny_effects_class = 'is-tiny';
+var tiny_effect_class = 'is-tiny';
 var ESC_KEY = 27;
 
 function setDetails(imageUrl, titleText) {
@@ -53,7 +53,12 @@ function hideDetails() {
 
 function showDetails() {
   'use strict'
+  var frame = document.querySelector(detail_frame_selector);
   document.body.classList.remove(hidden_detail_class);
+  frame.classList.add(tiny_effect_class);
+  setTimeout(function () {
+  frame.classList.remove(tiny_effect_class);
+}, 50);
 }
 
 function addKeyPressHandler() {
